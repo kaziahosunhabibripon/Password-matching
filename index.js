@@ -27,8 +27,8 @@ function DisplayButton(event){
       }
       if(digit==="<"){
         let typedPin = document.getElementById("input-display");
-        typedPin.value = typedPin.value.substring(0, typedPin.value.length - 1);
-     
+        // typedPin.value = typedPin.value.substring(0, typedPin.value.length - 1);
+        typedPin.value = typedPin.value.slice(0, typedPin.value.length - 1);
       }
    }else{  
     const typedPin = document.getElementById("input-display");
