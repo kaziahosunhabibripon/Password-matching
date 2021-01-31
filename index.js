@@ -26,8 +26,9 @@ function DisplayButton(event){
         typedPin.value = "";
       }
       if(digit==="<"){
-        const typedPin = document.getElementById("input-display");
-        typedPin.value = "";
+        let typedPin = document.getElementById("input-display");
+        typedPin.value = typedPin.value.substring(0, typedPin.value.length - 1);
+     
       }
    }else{  
     const typedPin = document.getElementById("input-display");
