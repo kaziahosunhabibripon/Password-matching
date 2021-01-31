@@ -1,7 +1,8 @@
 function getPassword() {
     const password = (((Math.random() * 10000) + " ").split('.')[0]);
     if (password.length === 4) {
-        return password;}
+        return password;
+    }
     
 }
 // display password
@@ -11,8 +12,19 @@ document.getElementById("pin").addEventListener("click", function () {
 })
 
 
+// typing display
+const buttonContainer = document.getElementById("button-container");
+buttonContainer.addEventListener("click", function(e){
+   const digit = (e.target.innerText);
+   if(isNaN(digit)){
+       return false;
 
-
+   }else{  
+    const inputDisplay = document.getElementById("input-display");
+    inputDisplay.value = inputDisplay.value + digit;
+   }
+   
+})
 
 
 
