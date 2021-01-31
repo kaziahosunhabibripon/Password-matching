@@ -1,31 +1,57 @@
+// random password generator
 function getPassword() {
     const password = (((Math.random() * 10000) + " ").split('.')[0]);
     if (password.length === 4) {
         return password;
+    }else{
+        console.log("Password is sort!");
+        return getPassword();
     }
     
 }
 // display password
-document.getElementById("pin").addEventListener("click", function () {
-    const display = document.getElementById("pin-display");
-    display.value = getPassword();
-})
-
+function passwordGenerator(){
+    const displayPin = document.getElementById("pin-display");
+    displayPin.value = getPassword();
+}
 
 // typing display
-const buttonContainer = document.getElementById("button-container");
-buttonContainer.addEventListener("click", function(e){
-   const digit = (e.target.innerText);
+function DisplayButton(event){
+    const digit = (event.target.innerText);
    if(isNaN(digit)){
-       return false;
-
+      // handle <
+      // handle c
+      if(digit==="C"){
+        const typedPin = document.getElementById("input-display");
+        typedPin.value = "";
+      }
+      if(digit==="<"){
+        const typedPin = document.getElementById("input-display");
+        typedPin.value = "";
+      }
    }else{  
-    const inputDisplay = document.getElementById("input-display");
-    inputDisplay.value = inputDisplay.value + digit;
+    const typedPin = document.getElementById("input-display");
+    typedPin.value = typedPin.value + digit;
    }
-   
-})
+}
 
+
+// Match pin
+function pinMatch(){
+    const displayPin = document.getElementById("pin-display").value;
+    const typedPin = document.getElementById("input-display").value;
+    if(displayPin === typedPin){
+        displayMatchResult("block", "none");
+    }else{
+        displayMatchResult("none", "block");
+    }
+}
+function displayMatchResult(rightStatus, wrongStatus){
+    const right = document.getElementById("right");
+    right.style.display= rightStatus;
+    const wrong = document.getElementById("wrong");
+    wrong.style.display= wrongStatus;
+}
 
 
 
